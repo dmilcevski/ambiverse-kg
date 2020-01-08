@@ -27,7 +27,7 @@ public class DaoNeo4j implements IDao, AutoCloseable{
 
   private static final Logger LOGGER = org.slf4j.LoggerFactory.getLogger(DaoNeo4j.class);
 
-  private final Pattern languageCodedValuePattern = Pattern.compile("<?(?<value0>http:\\/\\/(?<language0>en|de|es|zh|fr|ar|ru|cs)\\..*)>|<((?<language1>en|de|es|zh|fr|ar|ru|cs)\\/)?(?<value1>.*)>|(?<value2>.*)@(?<language2>en|de|es|zh|fr|ar|ru|cs)");
+  private final Pattern languageCodedValuePattern = Pattern.compile("<?(?<value0>http:\\/\\/(?<language0>en|de|es|zh|fr|ar|ru|cs|mk)\\..*)>|<((?<language1>en|de|es|zh|fr|ar|ru|cs|mk)\\/)?(?<value1>.*)>|(?<value2>.*)@(?<language2>en|de|es|zh|fr|ar|ru|cs|mk)");
 
   private enum OrderedLanguageCode {
       EN,
@@ -36,6 +36,7 @@ public class DaoNeo4j implements IDao, AutoCloseable{
       ZH,
       RU,
       CS,
+      MK,
   }
   
   private static Driver driver;
@@ -407,6 +408,7 @@ public class DaoNeo4j implements IDao, AutoCloseable{
     valuesByLanguage.putIfAbsent("es", null);
     valuesByLanguage.putIfAbsent("zh", null);
     valuesByLanguage.putIfAbsent("ru", null);
+    valuesByLanguage.putIfAbsent("mk", null);
 
     for (String value : values) {
       Matcher m = languageCodedValuePattern.matcher(value);
