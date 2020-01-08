@@ -8,8 +8,8 @@ services:
     deploy:
       replicas: 1
     environment:
-      DUMP_NAME: yago_aida_en20180120_cs20180120_de20180120_es20180120_ru20180120_zh20180120
-      NEO4J_dbms_active__database: yago_aida_en20180120_cs20180120_de20180120_es20180120_ru20180120_zh20180120.db
+      DUMP_NAME: yago_aida_en20191101_cs20191101_de20191101_es20191101_ru20191101_zh20191101_mk20191101
+      NEO4J_dbms_active__database: yago_aida_en20191101_cs20191101_de20191101_es20191101_ru20191101_zh20191101_mk20191101.db
       NEO4J_dbms_memory_pagecache_size: 8G
       NEO4J_dbms_memory_heap_initial__size: 8G
       NEO4J_dbms_memory_heap_max__size: 12G
